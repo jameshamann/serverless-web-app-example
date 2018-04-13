@@ -4,6 +4,7 @@ import './App.css';
 import Amplify, { API } from 'aws-amplify';
 import aws_exports from './aws-exports';
 import {Container, Label, Form, Input, Search, Sidebar, Segment, Button, Menu, Image, Icon, Header, Grid, Message } from 'semantic-ui-react'
+import ItemDashboard from './screens/itemDashboard'
 Amplify.configure(aws_exports);
 
 let apiName = 'sampleCloudApi';
@@ -25,6 +26,7 @@ class App extends Component {
            <Menu.Item name='Items'/>
            <Menu.Item name='aboutUs' />
          </Menu>
+         <ItemDashboard />
       </Segment>
     );
   }
