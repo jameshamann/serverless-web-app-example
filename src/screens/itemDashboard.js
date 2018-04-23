@@ -14,8 +14,6 @@ class ItemDashboard extends Component {
   }
 
   getItems(){
-    var self = this;
-    var results;
     API.get(apiName, path).then(response => {
       console.log(response)
       this.setState({
