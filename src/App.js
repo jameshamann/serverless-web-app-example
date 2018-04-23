@@ -9,8 +9,6 @@ import CreateItemModal from './screens/createItem'
 
 Amplify.configure(aws_exports);
 
-let apiName = 'ServerlessReactExampleCRUD';
-let path = '/ServerlessReactExample';
 
 class App extends Component {
 
@@ -18,11 +16,6 @@ class App extends Component {
     super(props)
   }
 
-  componentDidMount(){
-    API.get(apiName, path).then(response => {
-      console.log(response)
-    });
-  }
 
   render() {
     return (

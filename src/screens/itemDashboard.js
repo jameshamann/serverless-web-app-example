@@ -1,38 +1,57 @@
 import React, { Component } from 'react';
 import {Container, Card} from 'semantic-ui-react'
 import Amplify, { API } from 'aws-amplify';
+import _ from 'lodash';
 
 let apiName = 'ServerlessReactExampleCRUD';
 let path = '/ServerlessReactExample';
 
 class ItemDashboard extends Component {
 
-  componentDidMount(){
+  constructor(props){
+    super(props)
+    this.state = {itemData: {}}
+  }
+
+  getItems(){
+    var self = this;
+    var results;
     API.get(apiName, path).then(response => {
       console.log(response)
+      this.setState({
+       itemData: response.data
+      });
     });
+  }
+
+  componentDidMount(){
+    this.getItems()
+    console.log(this.getItems())
   }
 
 
   render() {
+    const itemData = this.state.itemData;
     return (
       <div>
         <Container style={{padding: 10}}>
-          <Card.Group>
-              <Card>
+        <Card.Group>
+        {_.map(itemData, ({ID, ItemName, ItemPrice, ItemDescription }) => (
+            <Card>
               <Card.Content>
                 <Card.Header>
-                    Item Name
+                    {ItemName}
                 </Card.Header>
                 <Card.Meta>
-                  Item Price
+                  £ {ItemPrice}
                 </Card.Meta>
                 <Card.Description>
-                  Description of the Item
+                    {ItemDescription}
                 </Card.Description>
               </Card.Content>
             </Card>
-          </Card.Group>
+          ))}
+        </Card.Group>
       </Container>
     </div>
     );
