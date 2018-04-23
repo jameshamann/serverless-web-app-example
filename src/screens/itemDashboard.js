@@ -24,7 +24,6 @@ class ItemDashboard extends Component {
 
   componentDidMount(){
     this.getItems()
-    console.log(this.getItems())
   }
 
 
