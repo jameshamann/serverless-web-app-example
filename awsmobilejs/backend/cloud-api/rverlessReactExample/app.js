@@ -56,30 +56,20 @@ app.get('/ServerlessReactExample', function(req, res) {
 
   var params = {
     TableName: tableName,
-    ProjectionExpression: "#ID"
+    Select: 'ALL_ATTRIBUTES',
 };
 
-docClient.scan(params, onScan);
+dynamodb.scan(params, (err, data) => {
+       if (err) {
+         res.json({error: 'Could not load items: ' + err.message});
+       }
 
-function onScan(err, data) {
-    if (err) {
-        console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
-    } else {
-        res.send(data)
-        console.log("Scan succeeded.");
-        data.Items.forEach(function(item) {
-           console.log(
-                item.ItemName + ":",
-                item.ItemPrice + ": " + item.itemDescription + "%" );
-        });
-
-        if (typeof data.LastEvaluatedKey != "undefined") {
-            console.log("Scanning for more...");
-            params.ExclusiveStartKey = data.LastEvaluatedKey;
-            docClient.scan(params, onScan);
-        }
-    }
-  }
+       res.json({
+           data: data.Items.map(item => {
+             return item;
+           })
+       });
+   });
 });
 
 /********************************

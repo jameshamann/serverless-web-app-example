@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import {Container, Card} from 'semantic-ui-react'
+import Amplify, { API } from 'aws-amplify';
+
 
 class ItemDashboard extends Component {
+
+  componentDidMount(){
+    API.get(apiName, path).then(response => {
+      console.log(response)
+    });
+  }
+
 
   render() {
     return (
