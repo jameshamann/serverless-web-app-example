@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Container, Card} from 'semantic-ui-react'
 import Amplify, { API } from 'aws-amplify';
 
+let apiName = 'ServerlessReactExampleCRUD';
+let path = '/ServerlessReactExample';
 
 class ItemDashboard extends Component {
 
