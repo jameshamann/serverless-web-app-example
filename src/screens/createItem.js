@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Modal, Button, Container } from 'semantic-ui-react'
 import Amplify, { API } from 'aws-amplify';
+const uuidv1 = require('uuid/v1');
 
 
 class CreateItemModal extends Component {
@@ -21,14 +22,17 @@ class CreateItemModal extends Component {
 
   handleSubmit(event) {
     console.log(this);
-    let apiName = 'sampleCloudApi';
-    let path = '/items';
-    let myInit = {
+    let apiName = 'ServerlessReactExampleCRUD';
+    let path = '/ServerlessReactExample';
+    let newItem = {
       body: {
-          name: this.state.itemName, price: this.state.itemPrice, description: this.state.itemDescription
+          "ID": uuidv1(),
+          "ItemName": this.state.itemName,
+          "ItemPrice": this.state.itemPrice,
+          "ItemDescription": this.state.itemDescription
         }
       }
-    API.post(apiName, path, myInit).then(response => {
+    API.post(apiName, path, newItem).then(response => {
     console.log(response)
     }).catch(error => {
         console.log(error.response)
@@ -51,7 +55,7 @@ class CreateItemModal extends Component {
                 <Form.Input name='itemName' label='Item Name' placeholder='Enter Item Name...' onChange={this.handleChange}  value={this.state.itemName} />
                 <Form.Input name='itemPrice' label='Item Price' placeholder='£0.00' onChange={this.handleChange}  value={this.state.itemPrice} />
               </Form.Group>
-              <Form.TextArea name='itemDescription' label='Item Description' placeholder='Add a Description of the Item...' onChange={this.handleChange}  value={this.state.itemD} />
+              <Form.TextArea name='itemDescription' label='Item Description' placeholder='Add a Description of the Item...' onChange={this.handleChange}  value={this.state.itemDescription} />
 
               <Form.Button type='submit'>Submit</Form.Button>
             </Form>

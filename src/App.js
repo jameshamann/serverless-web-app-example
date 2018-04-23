@@ -9,8 +9,8 @@ import CreateItemModal from './screens/createItem'
 
 Amplify.configure(aws_exports);
 
-let apiName = 'sampleCloudApi';
-let path = '/items';
+let apiName = 'ServerlessReactExampleCRUD';
+let path = '/ServerlessReactExample';
 
 class App extends Component {
 
