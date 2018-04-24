@@ -60,7 +60,7 @@ class ItemDashboard extends Component {
                     {ItemDescription}
                 </Card.Description>
               </Card.Content>
-              <EditItemModal item={this.state.item} />
+              <EditItemModal item={Object.values(this.state.item)} />
             </Card>
           ))}
         </Card.Group>
