@@ -46,7 +46,7 @@ class ItemDashboard extends Component {
     const itemData = this.state.itemData;
     return (
       <div>
-      <Menu.Item><CreateItemModal getItems={this.getItems}/></Menu.Item>
+      <CreateItemModal getItems={this.getItems}/>
 
         <Container style={{padding: 10}}>
         <Card.Group>
