@@ -43,15 +43,7 @@ class EditItemModal extends Component {
     event.preventDefault();
   }
 
-  deleteItem(event){
-    let delItem = {
-      body: {
-          "ID": this.props.item[0].ID,
-          "ItemName": this.state.itemName,
-          "ItemPrice": this.state.itemPrice,
-          "ItemDescription": this.state.itemDescription
-        }
-      }
+  deleteItem(){
     let apiName = 'ServerlessReactExampleCRUD';
     let path = "/ServerlessReactExample/object/" + this.props.item[0].ID
     API.del(apiName, path).then(response => {
