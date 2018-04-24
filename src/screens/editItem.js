@@ -56,7 +56,7 @@ class EditItemModal extends Component {
     this.handleClose()
   }
 
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleOpen = () => this.setState({ modalOpen: true, itemName: '', itemPrice: '', itemDescription: '' })
 
   handleClose = () => this.setState({ modalOpen: false })
 

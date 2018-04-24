@@ -52,7 +52,7 @@ class CreateItemModal extends Component {
     this.handleClose()
   }
 
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleOpen = () => this.setState({ modalOpen: true, itemName: '', itemPrice: '', itemDescription: '' })
 
   handleClose = () => this.setState({ modalOpen: false })
 
@@ -63,7 +63,7 @@ class CreateItemModal extends Component {
         <Modal trigger={<Button onClick={this.handleOpen}>+ Add Item</Button>} closeIcon={true} open={this.state.modalOpen} onClose={this.handleClose}>
           <Modal.Header>Add an Item</Modal.Header>
           <Modal.Content>
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} >
               <Form.Group unstackable widths={2}>
                 <Form.Input name='itemName' label='Item Name' placeholder='Enter Item Name...' onChange={this.handleChange}  value={this.state.itemName} />
                 <Form.Input name='itemPrice' label='Item Price' placeholder='£0.00' onChange={this.handleChange}  value={this.state.itemPrice} />
