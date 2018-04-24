@@ -32,11 +32,12 @@ class ItemDashboard extends Component {
       item: response
     })
   });
-  console.log(this.state.item)
+  return this.state.item
 }
 
   componentDidMount(){
     this.getItems()
+    // this.getItem("3a0806d0-4715-11e8-bef9-89bf8984b9f5")
   }
 
 

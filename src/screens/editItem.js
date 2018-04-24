@@ -14,7 +14,10 @@ class EditItemModal extends Component {
     super(props)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { item: this.props.item };
   }
+
+
 
   componentDidMount(){
     this.setState({item: this.props.item})
@@ -51,26 +54,24 @@ class EditItemModal extends Component {
   handleClose = () => this.setState({ modalOpen: false })
 
   render () {
-    const item = this.props.item
+    let itemArr = this.props.item;
       return (
         <Container style={{padding: 10}}>
-        {_.map(item, ({ID, ItemName, ItemPrice, ItemDescription }) => (
+        {_.map(itemArr, ({ID, ItemName, ItemPrice, ItemDescription }) => (
             <Modal trigger={<Button icon onClick={this.handleOpen}> <Icon name='edit' /></Button>} closeIcon>
               <Modal.Header>Edit {ItemName}</Modal.Header>
               <Modal.Content>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group unstackable widths={2}>
-                    <Form.Input name='itemName' label='Item Name' placeholder={ItemName} onChange={this.handleChange}  value={this.state.itemName} />
-                    <Form.Input name='itemPrice' label='Item Price' placeholder={ItemPrice} onChange={this.handleChange}  value={this.state.itemPrice} />
+                    <Form.Input name='itemName' label='Item Name' placeholder={ItemName} onChange={this.handleChange}   />
+                    <Form.Input name='itemPrice' label='Item Price' placeholder={ItemPrice} onChange={this.handleChange}  />
                   </Form.Group>
-                  <Form.TextArea name='itemDescription' label='Item Description' placeholder={ItemDescription} onChange={this.handleChange}  value={this.state.itemDescription} />
-
+                  <Form.TextArea name='itemDescription' label='Item Description' placeholder={ItemDescription} onChange={this.handleChange}  />
                   <Form.Button type='submit'>Submit</Form.Button>
                 </Form>
-
             </Modal.Content>
           </Modal>
-          ))}
+        ))}
        </Container>
       );
     }
