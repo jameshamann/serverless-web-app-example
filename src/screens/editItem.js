@@ -14,6 +14,8 @@ class EditItemModal extends Component {
     super(props)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+
     this.state = { item: this.props.item };
   }
 
@@ -22,7 +24,6 @@ class EditItemModal extends Component {
   }
 
   handleSubmit(event) {
-    let itemArray = Object.values(this.props.item)
     let apiName = 'ServerlessReactExampleCRUD';
     let path = '/ServerlessReactExample';
     let editItem = {
@@ -42,6 +43,25 @@ class EditItemModal extends Component {
     event.preventDefault();
   }
 
+  deleteItem(event){
+    let delItem = {
+      body: {
+          "ID": this.props.item[0].ID,
+          "ItemName": this.state.itemName,
+          "ItemPrice": this.state.itemPrice,
+          "ItemDescription": this.state.itemDescription
+        }
+      }
+    let apiName = 'ServerlessReactExampleCRUD';
+    let path = "/ServerlessReactExample/object/" + this.props.item[0].ID
+    API.del(apiName, path).then(response => {
+    console.log(response)
+    }).catch(error => {
+        console.log(error.response)
+    });
+    this.handleClose()
+  }
+
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
@@ -49,7 +69,7 @@ class EditItemModal extends Component {
   render () {
       return (
         <Container style={{padding: 10}}>
-            <Modal trigger={<Button icon onClick={this.handleOpen}><Icon name='edit' /></Button>}open={this.state.modalOpen}  closeIcon>
+            <Modal trigger={<Button icon onClick={this.handleOpen}><Icon name='edit' /></Button>} open={this.state.modalOpen} closeIcon onClose={this.handleClose}>
               <Modal.Header>Edit</Modal.Header>
               <Modal.Content>
                 <Form onSubmit={this.handleSubmit}>
@@ -61,6 +81,12 @@ class EditItemModal extends Component {
                   <Form.Button type='submit'>Submit</Form.Button>
                 </Form>
             </Modal.Content>
+            <Modal.Actions>
+              <Button icon labelPosition='left' onClick={this.deleteItem}>
+              <Icon name='delete' />
+                Delete Item
+              </Button>
+            </Modal.Actions>
           </Modal>
        </Container>
       );
