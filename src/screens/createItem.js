@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Form, Modal, Button, Container } from 'semantic-ui-react'
 import Amplify, { API } from 'aws-amplify';
 const uuidv1 = require('uuid/v1');
-
+let apiName = 'ServerlessReactExampleCRUD';
+let path = '/ServerlessReactExample';
 
 class CreateItemModal extends Component {
 
@@ -14,6 +15,15 @@ class CreateItemModal extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
+  }
+
+  getItems(){
+    API.get(apiName, path).then(response => {
+      console.log(response)
+      this.setState({
+       itemData: response.data
+      });
+    });
   }
 
   handleChange(event, {name, value}) {
@@ -38,12 +48,15 @@ class CreateItemModal extends Component {
         console.log(error.response)
     });
     event.preventDefault();
+    this.props.getItems()
     this.handleClose()
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
+
+
 
   render () {
     return (

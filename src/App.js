@@ -24,7 +24,6 @@ class App extends Component {
            <Menu.Item name='home'> <Icon name="shop"/></Menu.Item>
            <Menu.Item name='Items'/>
            <Menu.Item name='aboutUs' />
-           <Menu.Item><CreateItemModal /></Menu.Item>
          </Menu>
          <ItemDashboard />
       </Segment>

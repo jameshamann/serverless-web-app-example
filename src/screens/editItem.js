@@ -39,8 +39,9 @@ class EditItemModal extends Component {
     }).catch(error => {
         console.log(error.response)
     });
-    this.handleClose()
     event.preventDefault();
+    this.props.getItems()
+    this.handleClose()
   }
 
   deleteItem(){
@@ -51,6 +52,7 @@ class EditItemModal extends Component {
     }).catch(error => {
         console.log(error.response)
     });
+    this.props.getItems()
     this.handleClose()
   }
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Container, Card} from 'semantic-ui-react'
+import {Container, Card, Menu} from 'semantic-ui-react'
 import Amplify, { API } from 'aws-amplify';
 import _ from 'lodash';
 import EditItemModal from './editItem.js'
+import CreateItemModal from './createItem'
 
 let apiName = 'ServerlessReactExampleCRUD';
 let path = '/ServerlessReactExample';
@@ -12,6 +13,8 @@ class ItemDashboard extends Component {
   constructor(props){
     super(props)
     this.state = {itemData: {}, item: {}, modalOpen: false}
+    this.getItems = this.getItems.bind(this);
+
   }
 
   getItems(){
@@ -37,14 +40,14 @@ class ItemDashboard extends Component {
 
   componentDidMount(){
     this.getItems()
-    // this.getItem("3a0806d0-4715-11e8-bef9-89bf8984b9f5")
   }
-
 
   render() {
     const itemData = this.state.itemData;
     return (
       <div>
+      <Menu.Item><CreateItemModal getItems={this.getItems}/></Menu.Item>
+
         <Container style={{padding: 10}}>
         <Card.Group>
         {_.map(itemData, ({ID, ItemName, ItemPrice, ItemDescription }) => (
@@ -60,7 +63,7 @@ class ItemDashboard extends Component {
                     {ItemDescription}
                 </Card.Description>
               </Card.Content>
-              <EditItemModal item={Object.values(this.state.item)} />
+              <EditItemModal item={Object.values(this.state.item)} getItems={(this.getItems)} />
             </Card>
           ))}
         </Card.Group>
