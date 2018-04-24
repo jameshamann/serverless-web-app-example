@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Modal, Button, Container } from 'semantic-ui-react'
+import { Form, Modal, Button, Container, Icon } from 'semantic-ui-react'
 import Amplify, { API } from 'aws-amplify';
 import _ from 'lodash';
 const uuidv1 = require('uuid/v1');
@@ -14,7 +14,6 @@ class EditItemModal extends Component {
     super(props)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { modalOpen: false, item: []}
   }
 
   componentDidMount(){
@@ -47,16 +46,16 @@ class EditItemModal extends Component {
     this.handleClose()
   }
 
-  handleOpen = () => this.setState({ modalOpen: true, item: this.props.item })
+  handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
 
   render () {
     const item = this.props.item
       return (
-        <div>
+        <Container style={{padding: 10}}>
         {_.map(item, ({ID, ItemName, ItemPrice, ItemDescription }) => (
-            <Modal trigger={<Button onClick={this.handleOpen}>Edit Item</Button>} closeIcon={true} open={this.state.modalOpen} onClose={this.handleClose}>
+            <Modal trigger={<Button icon onClick={this.handleOpen}> <Icon name='edit' /></Button>} closeIcon>
               <Modal.Header>Edit {ItemName}</Modal.Header>
               <Modal.Content>
                 <Form onSubmit={this.handleSubmit}>
@@ -72,7 +71,7 @@ class EditItemModal extends Component {
             </Modal.Content>
           </Modal>
           ))}
-       </div>
+       </Container>
       );
     }
   }

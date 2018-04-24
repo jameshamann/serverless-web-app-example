@@ -47,11 +47,10 @@ class ItemDashboard extends Component {
         <Container style={{padding: 10}}>
         <Card.Group>
         {_.map(itemData, ({ID, ItemName, ItemPrice, ItemDescription }) => (
-            <Card>
+            <Card onClick={() => this.getItem(ID)}>
               <Card.Content>
-                <Card.Header selectable onClick={() => this.getItem(ID)}>
-                    <EditItemModal item={this.state.item} />
-                    {ItemName}
+                <Card.Header selectable>
+                {ItemName}
                 </Card.Header>
                 <Card.Meta>
                   £ {ItemPrice}
@@ -60,6 +59,7 @@ class ItemDashboard extends Component {
                     {ItemDescription}
                 </Card.Description>
               </Card.Content>
+              <EditItemModal item={this.state.item} />
             </Card>
           ))}
         </Card.Group>
