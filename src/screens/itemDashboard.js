@@ -32,11 +32,11 @@ class ItemDashboard extends Component {
       item: response
     })
   });
+  console.log(this.state.item)
 }
 
   componentDidMount(){
     this.getItems()
-    this.getItem('1')
   }
 
 
