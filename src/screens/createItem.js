@@ -17,15 +17,6 @@ class CreateItemModal extends Component {
 
   }
 
-  getItems(){
-    API.get(apiName, path).then(response => {
-      console.log(response)
-      this.setState({
-       itemData: response.data
-      });
-    });
-  }
-
   handleChange(event, {name, value}) {
     this.setState({ [name]: value });
   }
