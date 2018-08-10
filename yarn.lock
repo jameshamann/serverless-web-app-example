@@ -2,6 +2,82 @@
 # yarn lockfile v1
 
 
+"@aws-amplify/analytics@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/analytics/-/analytics-1.0.4.tgz#fb1237656aaaff0dc1f8d53702c36e8c4c10a96d"
+  dependencies:
+    "@aws-amplify/cache" "^1.0.3"
+    "@aws-amplify/core" "^1.0.3"
+    aws-sdk "2.198.0"
+    uuid "^3.2.1"
+
+"@aws-amplify/api@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/api/-/api-1.0.5.tgz#e36914541b3624d386728f9a0ed33f01721dc6e2"
+  dependencies:
+    "@aws-amplify/auth" "^1.0.5"
+    "@aws-amplify/cache" "^1.0.3"
+    "@aws-amplify/core" "^1.0.3"
+    "@types/zen-observable" "^0.5.3"
+    axios "^0.17.0"
+    graphql "0.13.0"
+    zen-observable "^0.8.6"
+
+"@aws-amplify/auth@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/auth/-/auth-1.0.5.tgz#1db9886f62b5b89ff74e056a3868c63cf3fec83a"
+  dependencies:
+    "@aws-amplify/cache" "^1.0.3"
+    "@aws-amplify/core" "^1.0.3"
+    amazon-cognito-auth-js "^1.1.9"
+    amazon-cognito-identity-js "^2.0.20"
+
+"@aws-amplify/cache@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/cache/-/cache-1.0.4.tgz#bc7d624cc1a4365e6cd6c0299793008c1af35102"
+  dependencies:
+    "@aws-amplify/core" "^1.0.3"
+
+"@aws-amplify/core@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/core/-/core-1.0.4.tgz#595fd9773bb9038be49dd956bb2f9671296d9c10"
+  dependencies:
+    aws-sdk "2.198.0"
+    url "^0.11.0"
+
+"@aws-amplify/interactions@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/interactions/-/interactions-1.0.4.tgz#b745c818331c26d17759f041120542ff997777a5"
+  dependencies:
+    "@aws-amplify/core" "^1.0.3"
+    aws-sdk "2.198.0"
+
+"@aws-amplify/pubsub@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/pubsub/-/pubsub-1.0.4.tgz#2a45f2e0628666b4d5cb3c3e8062c4c30c38eaf4"
+  dependencies:
+    "@aws-amplify/core" "^1.0.3"
+    "@types/paho-mqtt" "^1.0.3"
+    "@types/zen-observable" "^0.5.3"
+    paho-mqtt "^1.0.4"
+    uuid "^3.2.1"
+    zen-observable "^0.8.6"
+
+"@aws-amplify/storage@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/storage/-/storage-1.0.4.tgz#44a3d44d27e6737fad9d92a037b5caed1d7c5b1d"
+  dependencies:
+    "@aws-amplify/core" "^1.0.3"
+    aws-sdk "2.198.0"
+
+"@types/paho-mqtt@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@types/paho-mqtt/-/paho-mqtt-1.0.3.tgz#2eda0886584e1e69551f5203934878c326fe3566"
+
+"@types/zen-observable@^0.5.3":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.5.4.tgz#b863a4191e525206819e008097ebf0fb2e3a1cdc"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -96,9 +172,15 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
-amazon-cognito-identity-js@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-2.0.3.tgz#38fb50f9c509be6d4aba491f8a901d8dd45f3a13"
+amazon-cognito-auth-js@^1.1.9:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/amazon-cognito-auth-js/-/amazon-cognito-auth-js-1.2.4.tgz#40d82f0ed389905fd0751693ba46a5386ac6864a"
+  dependencies:
+    js-cookie "^2.1.4"
+
+amazon-cognito-identity-js@^2.0.20:
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-2.0.20.tgz#07572da3c31569e66953b7c4f602e456499c8852"
   dependencies:
     buffer "4.9.1"
     crypto-browserify "1.0.9"
@@ -345,22 +427,26 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
-aws-amplify-react@^0.1.38:
-  version "0.1.38"
-  resolved "https://registry.yarnpkg.com/aws-amplify-react/-/aws-amplify-react-0.1.38.tgz#639c3e85cb28fd4df261dfb88edd8af1b5cd5af3"
+aws-amplify-react@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/aws-amplify-react/-/aws-amplify-react-1.0.5.tgz#3df4334724eb477d1d0ef95d40a1368b5d0eda67"
   dependencies:
+    aws-amplify "^1.0.5"
     qrcode.react "^0.8.0"
+    regenerator-runtime "^0.11.1"
 
-aws-amplify@^0.2.14:
-  version "0.2.14"
-  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-0.2.14.tgz#ed8fb7cfdb68ddb737c935b39723df6dc9874036"
+aws-amplify@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-1.0.5.tgz#b2dc7ade8b0d7a04f3ed6db2dda0cc004c92e65e"
   dependencies:
-    amazon-cognito-identity-js "^2.0.0"
-    aws-sdk "2.198.0"
-    axios "^0.17.0"
-    paho-mqtt "^1.0.4"
-    uuid "^3.2.1"
-    zen-observable "^0.8.6"
+    "@aws-amplify/analytics" "^1.0.3"
+    "@aws-amplify/api" "^1.0.5"
+    "@aws-amplify/auth" "^1.0.5"
+    "@aws-amplify/cache" "^1.0.3"
+    "@aws-amplify/core" "^1.0.3"
+    "@aws-amplify/interactions" "^1.0.3"
+    "@aws-amplify/pubsub" "^1.0.3"
+    "@aws-amplify/storage" "^1.0.3"
 
 aws-sdk@2.198.0:
   version "2.198.0"
@@ -3088,6 +3174,12 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
+graphql@0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.0.tgz#d1b44a282279a9ce0a6ec1037329332f4c1079b6"
+  dependencies:
+    iterall "1.1.x"
+
 growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
@@ -3881,6 +3973,10 @@ istanbul-reports@^1.3.0:
   resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-1.3.0.tgz#2f322e81e1d9520767597dca3c20a0cce89a3554"
   dependencies:
     handlebars "^4.0.3"
+
+iterall@1.1.x:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.1.4.tgz#0db40d38fdcf53ae14dc8ec674e62ab190d52cfc"
 
 jest-changed-files@^20.0.3:
   version "20.0.3"
@@ -5823,7 +5919,7 @@ regenerate@^1.2.1:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.3.3.tgz#0c336d3980553d755c39b586ae3b20aa49c82b7f"
 
-regenerator-runtime@^0.11.0:
+regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
 

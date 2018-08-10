@@ -6,6 +6,7 @@ import aws_exports from './aws-exports';
 import {Container, Label, Form, Input, Search, Sidebar, Segment, Button, Menu, Image, Icon, Header, Grid, Message } from 'semantic-ui-react'
 import ItemDashboard from './screens/itemDashboard'
 import CreateItemModal from './screens/createItem'
+import { withAuthenticator } from 'aws-amplify-react'
 
 Amplify.configure(aws_exports);
 

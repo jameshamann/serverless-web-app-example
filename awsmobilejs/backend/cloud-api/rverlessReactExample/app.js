@@ -52,29 +52,26 @@ const convertUrlType = (param, type) => {
   }
 }
 
-app.get('/ServerlessReactExample', function(req, res) {
-
-  var params = {
-    TableName: tableName,
-    Select: 'ALL_ATTRIBUTES',
-};
-
-dynamodb.scan(params, (err, data) => {
-       if (err) {
-         res.json({error: 'Could not load items: ' + err.message});
-       }
-
-       res.json({
-           data: data.Items.map(item => {
-             return item;
-           })
-       });
-   });
-});
-
 /********************************
  * HTTP Get method for list objects *
  ********************************/
+
+ app.get('/ServerlessReactExample', function(req, res) {
+    var params = {
+        TableName: tableName,
+        Select: 'ALL_ATTRIBUTES',
+    };
+    dynamodb.scan(params, (err, data) => {
+           if (err) {
+             res.json({error: 'Could not load items: ' + err.message});
+           }
+    res.json({
+               data: data.Items.map(item => {
+                 return item;
+               })
+           });
+       });
+});
 
 app.get('/ServerlessReactExample/:ID', function(req, res) {
   var condition = {}
@@ -190,7 +187,7 @@ app.post(path, function(req, res) {
     if(err) {
       res.json({error: err, url: req.url, body: req.body});
     } else{
-      res.json({success: 'post call succeed!', url: req.url, data: data, body: req.body})
+      res.json({success: 'post call succeed!', url: req.url, data: data})
     }
   });
 });
