@@ -9,31 +9,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /ServerlessReactExample: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/rverlessReactExample-20180810144229.zip
+            codeFilename: uploads/rverlessReactExample-20180813105244.zip
             description: 'Handler for calls to resource path : /ServerlessReactExample/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: LGnyPdX7I02GGnvX6ERmpO7uj/VXmT4U9SDiafWfu60=
+            hashcode: 9d4dMfOeWEtFla+rBYsKlRhGi3C79LFLIo8jJBiXv7g=
             memorySize: '128'
-            modified: '2018-08-10T13:45:24.908+0000'
+            modified: '2018-08-13T09:55:32.688+0000'
             name: rverlessReactExample
             runtime: nodejs6.10
             timeout: '3'
-            version: KDyOOaSl3fb9KOL9HUA09JqGyymOgKLx
+            version: e_pSNDvfrZ1zaJcr_UoxNstxnVDFx6WY
           '/ServerlessReactExample/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/rverlessReactExample-20180810144229.zip
+            codeFilename: uploads/rverlessReactExample-20180813105244.zip
             description: 'Handler for calls to resource path : /ServerlessReactExample/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: LGnyPdX7I02GGnvX6ERmpO7uj/VXmT4U9SDiafWfu60=
+            hashcode: 9d4dMfOeWEtFla+rBYsKlRhGi3C79LFLIo8jJBiXv7g=
             memorySize: '128'
-            modified: '2018-08-10T13:45:24.908+0000'
+            modified: '2018-08-13T09:55:32.688+0000'
             name: rverlessReactExample
             runtime: nodejs6.10
             timeout: '3'
-            version: iOzE_AtkUNV9zVwFSu0F1DMSVLt5IlDF
+            version: q50LkZQIeCqbat5YnZO9E2S24wTF43BH
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -84,6 +84,12 @@ features:
       enabled: true
       optional-sign-in: true
     components:
+      sign-in-google: !com.amazonaws.mobilehub.v0.OpenIDConnectIdentityProvider 
+        attributes:
+          open-id-connect-audience-android: 847404625747-kj2ppqfv33rmg7cmgivumc743ugrnn1k.apps.googleusercontent.com
+          open-id-connect-audience-ios: 847404625747-kj2ppqfv33rmg7cmgivumc743ugrnn1k.apps.googleusercontent.com
+          open-id-connect-audience-webapp: 847404625747-kj2ppqfv33rmg7cmgivumc743ugrnn1k.apps.googleusercontent.com
+          open-id-provider-url: 'https://accounts.google.com'
       sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
         attributes:
           alias-attributes:
